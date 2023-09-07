@@ -37,7 +37,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -91,7 +90,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(255, 92);
+            this.button1.Location = new System.Drawing.Point(12, 153);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 57);
             this.button1.TabIndex = 2;
@@ -102,7 +101,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(255, 155);
+            this.button2.Location = new System.Drawing.Point(255, 90);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 57);
             this.button2.TabIndex = 3;
@@ -113,7 +112,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(255, 218);
+            this.button3.Location = new System.Drawing.Point(255, 155);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 57);
             this.button3.TabIndex = 4;
@@ -124,7 +123,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(255, 281);
+            this.button4.Location = new System.Drawing.Point(255, 218);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 57);
             this.button4.TabIndex = 5;
@@ -135,9 +134,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button5.Location = new System.Drawing.Point(255, 344);
+            this.button5.Location = new System.Drawing.Point(255, 281);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 57);
+            this.button5.Size = new System.Drawing.Size(75, 120);
             this.button5.TabIndex = 6;
             this.button5.Text = "➕";
             this.button5.UseVisualStyleBackColor = true;
@@ -153,15 +152,6 @@
             this.button6.Text = "=";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button_Click);
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(174, 92);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 57);
-            this.button7.TabIndex = 8;
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
@@ -220,8 +210,10 @@
             // 
             // button13
             // 
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button13.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(93, 92);
+            this.button13.Location = new System.Drawing.Point(174, 90);
             this.button13.Name = "button13";
             this.button13.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button13.Size = new System.Drawing.Size(75, 57);
@@ -287,7 +279,7 @@
             // button19
             // 
             this.button19.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(12, 92);
+            this.button19.Location = new System.Drawing.Point(12, 90);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(75, 57);
             this.button19.TabIndex = 20;
@@ -298,7 +290,7 @@
             // button20
             // 
             this.button20.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.Location = new System.Drawing.Point(12, 155);
+            this.button20.Location = new System.Drawing.Point(93, 90);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(75, 57);
             this.button20.TabIndex = 21;
@@ -373,7 +365,6 @@
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -402,7 +393,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
