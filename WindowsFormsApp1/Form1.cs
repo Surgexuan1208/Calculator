@@ -62,14 +62,12 @@ namespace WindowsFormsApp1
                 if (contain(textBox1.Text,'.'))
                 {
                     dbuff = double.Parse(textBox1.Text);
-                    label1.Text=dbuff.ToString()+" double";
                 }
                 else
                 {
                     ibuff = int.Parse(textBox1.Text);
-                    label1.Text = ibuff.ToString() + " int";
                 }
-                statue=1;
+                statue =1;
             }
             
         }
@@ -106,7 +104,7 @@ namespace WindowsFormsApp1
             {
                 if (textBox1.Text.Length > 11)
                 {
-                    
+                    return;
                 }
                 else
                 {
@@ -277,7 +275,6 @@ namespace WindowsFormsApp1
                     {
                         case "➕":
                             dbuff = dbuff + double.Parse(textBox1.Text);
-                            label1.Text=dbuff.ToString();
                             break;
                         case "➖":
                             dbuff = dbuff - double.Parse(textBox1.Text);
