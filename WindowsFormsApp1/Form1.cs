@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
@@ -19,7 +18,8 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
         Int64 ibuff = 0;
-        double dbuff = 0F;
+        double dbuff = 0D;
+        int statue=0;
         private bool contain(string str,char target)
         {
             for(int i = 0; i < str.Length; i++)
@@ -62,19 +62,35 @@ namespace WindowsFormsApp1
                 if (contain(textBox1.Text,'.'))
                 {
                     dbuff = double.Parse(textBox1.Text);
+                    label1.Text=dbuff.ToString()+" double";
                 }
                 else
                 {
                     ibuff = int.Parse(textBox1.Text);
+                    label1.Text = ibuff.ToString() + " int";
                 }
+                statue=1;
             }
             
         }
         private void numbutton_Click(object sender, EventArgs e)
         {
-            if (false)
+            if((sender as Button).Text == "0"&&textBox2.Text== "➗")
             {
-
+                return;
+            }
+            if (textBox2.Text.Length!=0 && statue == 1)
+            {
+                textBox1.Text = "";
+                statue = 0;
+            }
+            if (statue == 2)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                statue = 0;
+                dbuff = 0D;
+                ibuff = 0;
             }
             if (textBox1.Text.Length == 1&&textBox1.Text.Length<13)
             {
@@ -129,21 +145,42 @@ namespace WindowsFormsApp1
         private void signedbtn(object sender, EventArgs e)
         {   
             if(textBox1.Text != "0")
-            {
+            {   
                 string str = "";
-                if (int.Parse(textBox1.Text) > 0)
+                if(contain(textBox1.Text, '.'))
                 {
-                    str += "-";
-                    for (int i = 0; i < textBox1.Text.Length; i++)
+                    if (double.Parse(textBox1.Text) > 0)
                     {
-                        str += textBox1.Text[i];
+                        str += "-";
+                        for (int i = 0; i < textBox1.Text.Length; i++)
+                        {
+                            str += textBox1.Text[i];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 1; i < textBox1.Text.Length; i++)
+                        {
+                            str += textBox1.Text[i];
+                        }
                     }
                 }
                 else
                 {
-                    for (int i = 1; i < textBox1.Text.Length; i++)
+                    if (int.Parse(textBox1.Text) > 0)
                     {
-                        str += textBox1.Text[i];
+                        str += "-";
+                        for (int i = 0; i < textBox1.Text.Length; i++)
+                        {
+                            str += textBox1.Text[i];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 1; i < textBox1.Text.Length; i++)
+                        {
+                            str += textBox1.Text[i];
+                        }
                     }
                 }
                 textBox1.Text = str;
@@ -151,10 +188,15 @@ namespace WindowsFormsApp1
         }
 
         private void button8_Click(object sender, EventArgs e)
-        {
-            if (textBox2.Text.Length == 0||false)
+        {   
+            textBox1.Text = "0";         
+            if (statue == 2)
             {
-                textBox1.Text = "0";
+                textBox2.Text = "";
+                textBox2.TextAlign = HorizontalAlignment.Right;
+                dbuff = 0D;
+                ibuff = 0;
+                statue = 0;
             }
         }
 
@@ -165,6 +207,7 @@ namespace WindowsFormsApp1
             textBox2.TextAlign = HorizontalAlignment.Right;
             dbuff = 0D;
             ibuff = 0;
+            statue = 0;
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -183,12 +226,15 @@ namespace WindowsFormsApp1
                     textBox1.Text = selecter(dbuff.ToString(), 12);
                     textBox2.TextAlign = HorizontalAlignment.Left;
                     textBox2.Text = "E";
+                    statue = 2;
                 }
                 else
                  {
                     dbuff=double.Parse(textBox1.Text);
                     dbuff = Math.Pow(dbuff, 0.5);
                     textBox1.Text = selecter(dbuff.ToString(), 12);
+                    textBox2.Text = "=";
+                    statue = 2;
                 }
             }
             else
@@ -205,18 +251,79 @@ namespace WindowsFormsApp1
                     textBox1.Text = selecter(dbuff.ToString(), 12);
                     textBox2.TextAlign = HorizontalAlignment.Left;
                     textBox2.Text = "E";
+                    statue = 2;
                 }
                 else
                 {
                     ibuff =Int64.Parse(textBox1.Text);
                     dbuff = Math.Pow(ibuff, 0.5);
                     textBox1.Text = selecter(dbuff.ToString(),12);
+                    textBox2.Text = "=";
+                    statue = 2;
                 }
             }
         }
         private void button13_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
+        }
+        private void equal_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length != 0)
+            {
+                if (contain(dbuff.ToString(), '.')||contain(textBox1.Text,'.'))
+                {
+                    switch (textBox2.Text)
+                    {
+                        case "➕":
+                            dbuff = dbuff + double.Parse(textBox1.Text);
+                            label1.Text=dbuff.ToString();
+                            break;
+                        case "➖":
+                            dbuff = dbuff - double.Parse(textBox1.Text);
+                            break;
+                        case "✖️":
+                            dbuff = dbuff * double.Parse(textBox1.Text);
+                            break;
+                        case "➗":
+                            dbuff = dbuff / double.Parse(textBox1.Text);
+                            textBox1.Text = selecter(dbuff.ToString(), 12);
+                            break;
+                    }
+                    textBox1.Text =dbuff.ToString();
+                }
+                else
+                {
+                    switch (textBox2.Text)
+                    {
+                        case "➕":
+                            ibuff = ibuff + int.Parse(textBox1.Text);
+                            textBox1.Text = ibuff.ToString();
+                            break;
+                        case "➖":
+                            ibuff = ibuff - int.Parse(textBox1.Text);
+                            textBox1.Text = ibuff.ToString();
+                            break;
+                        case "✖️":
+                            ibuff = ibuff * int.Parse(textBox1.Text);
+                            textBox1.Text = ibuff.ToString();
+                            break;
+                        case "➗":
+                            dbuff = (double)ibuff / double.Parse(textBox1.Text);
+                            textBox1.Text = selecter(dbuff.ToString(), 12);
+                            break;
+                    }
+                }
+                textBox2.Text = "=";
+                statue = 2;
+            }
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (!contain(textBox1.Text, '.'))
+            {
+                textBox1.Text += '.';
+            }
         }
     }
 }
