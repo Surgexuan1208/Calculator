@@ -269,46 +269,62 @@ namespace WindowsFormsApp1
         {
             if (textBox1.Text.Length != 0)
             {
-                if (contain(dbuff.ToString(), '.')||contain(textBox1.Text,'.'))
+                if (textBox2.Text.Length != 0)
                 {
-                    switch (textBox2.Text)
+                    if (contain(dbuff.ToString(), '.') || contain(textBox1.Text, '.'))
                     {
-                        case "➕":
-                            dbuff = dbuff + double.Parse(textBox1.Text);
-                            break;
-                        case "➖":
-                            dbuff = dbuff - double.Parse(textBox1.Text);
-                            break;
-                        case "✖️":
-                            dbuff = dbuff * double.Parse(textBox1.Text);
-                            break;
-                        case "➗":
-                            dbuff = dbuff / double.Parse(textBox1.Text);
-                            textBox1.Text = selecter(dbuff.ToString(), 12);
-                            break;
+                        switch (textBox2.Text)
+                        {
+                            case "➕":
+                                dbuff = dbuff + double.Parse(textBox1.Text);
+                                break;
+                            case "➖":
+                                dbuff = dbuff - double.Parse(textBox1.Text);
+                                break;
+                            case "✖️":
+                                dbuff = dbuff * double.Parse(textBox1.Text);
+                                break;
+                            case "➗":
+                                dbuff = dbuff / double.Parse(textBox1.Text);
+                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                break;
+                        }
+                        textBox1.Text = dbuff.ToString();
                     }
-                    textBox1.Text =dbuff.ToString();
+                    else
+                    {
+                        switch (textBox2.Text)
+                        {
+                            case "➕":
+                                ibuff = ibuff + int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "➖":
+                                ibuff = ibuff - int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "✖️":
+                                ibuff = ibuff * int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "➗":
+                                dbuff = (double)ibuff / double.Parse(textBox1.Text);
+                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                break;
+                        }
+                    }
                 }
                 else
                 {
-                    switch (textBox2.Text)
+                    if (contain(dbuff.ToString(), '.') || contain(textBox1.Text, '.'))
                     {
-                        case "➕":
-                            ibuff = ibuff + int.Parse(textBox1.Text);
-                            textBox1.Text = ibuff.ToString();
-                            break;
-                        case "➖":
-                            ibuff = ibuff - int.Parse(textBox1.Text);
-                            textBox1.Text = ibuff.ToString();
-                            break;
-                        case "✖️":
-                            ibuff = ibuff * int.Parse(textBox1.Text);
-                            textBox1.Text = ibuff.ToString();
-                            break;
-                        case "➗":
-                            dbuff = (double)ibuff / double.Parse(textBox1.Text);
-                            textBox1.Text = selecter(dbuff.ToString(), 12);
-                            break;
+                        dbuff = double.Parse(textBox1.Text);
+                        textBox1.Text = dbuff.ToString();
+                    }
+                    else
+                    {
+                        ibuff = int.Parse(textBox1.Text);
+                        textBox1.Text = ibuff.ToString();
                     }
                 }
                 textBox2.Text = "=";
