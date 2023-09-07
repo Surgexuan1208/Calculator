@@ -72,7 +72,10 @@ namespace WindowsFormsApp1
         }
         private void numbutton_Click(object sender, EventArgs e)
         {
-            if()
+            if (false)
+            {
+
+            }
             if (textBox1.Text.Length == 1&&textBox1.Text.Length<13)
             {
                 if (textBox1.Text[0] =='0')
