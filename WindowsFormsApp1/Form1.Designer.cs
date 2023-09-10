@@ -212,6 +212,7 @@
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
             this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button13.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,7 +221,7 @@
             this.button13.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button13.Size = new System.Drawing.Size(75, 57);
             this.button13.TabIndex = 14;
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
