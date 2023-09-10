@@ -338,5 +338,72 @@ namespace WindowsFormsApp1
                 textBox1.Text += '.';
             }
         }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length != 0)
+            {
+                if (textBox2.Text.Length != 0)
+                {
+                    if (contain(dbuff.ToString(), '.') || contain(textBox1.Text, '.'))
+                    {
+                        switch (textBox2.Text)
+                        {
+                            case "➕":
+                                dbuff = dbuff + double.Parse(textBox1.Text);
+                                break;
+                            case "➖":
+                                dbuff = dbuff - double.Parse(textBox1.Text);
+                                break;
+                            case "✖️":
+                                dbuff = dbuff * double.Parse(textBox1.Text);
+                                break;
+                            case "➗":
+                                dbuff = dbuff / double.Parse(textBox1.Text);
+                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                break;
+                        }
+                        textBox1.Text = dbuff.ToString();
+                    }
+                    else
+                    {
+                        switch (textBox2.Text)
+                        {
+                            case "➕":
+                                ibuff = ibuff + int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "➖":
+                                ibuff = ibuff - int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "✖️":
+                                ibuff = ibuff * int.Parse(textBox1.Text);
+                                textBox1.Text = ibuff.ToString();
+                                break;
+                            case "➗":
+                                dbuff = (double)ibuff / double.Parse(textBox1.Text);
+                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (contain(dbuff.ToString(), '.') || contain(textBox1.Text, '.'))
+                    {
+                        dbuff = double.Parse(textBox1.Text);
+                        textBox1.Text = dbuff.ToString();
+                    }
+                    else
+                    {
+                        ibuff = int.Parse(textBox1.Text);
+                        textBox1.Text = ibuff.ToString();
+                    }
+                }
+                textBox2.Text = "=";
+                statue = 2;
+            }
+        }
     }
 }
