@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
         }
         private void numbutton_Click(object sender, EventArgs e)
         {
-            if((sender as Button).Text == "0"&&textBox2.Text== "➗")
+            if((sender as Button).Text == "0"&&textBox2.Text== "➗"&&int.Parse(textBox1.Text)<=0)
             {
                 return;
             }
@@ -273,8 +273,10 @@ namespace WindowsFormsApp1
                 {
                     if (contain(dbuff.ToString(), '.') || contain(textBox1.Text, '.'))
                     {
+                        dbuff = (double)ibuff;
                         switch (textBox2.Text)
                         {
+                            
                             case "➕":
                                 dbuff = dbuff + double.Parse(textBox1.Text);
                                 break;
@@ -286,10 +288,9 @@ namespace WindowsFormsApp1
                                 break;
                             case "➗":
                                 dbuff = dbuff / double.Parse(textBox1.Text);
-                                textBox1.Text = selecter(dbuff.ToString(), 12);
                                 break;
                         }
-                        textBox1.Text = dbuff.ToString();
+                        textBox1.Text = selecter(dbuff.ToString(), 12);
                     }
                     else
                     {
@@ -350,42 +351,38 @@ namespace WindowsFormsApp1
                         switch (textBox2.Text)
                         {
                             case "➕":
-                                dbuff = dbuff + double.Parse(textBox1.Text);
+                                dbuff = (double)ibuff + (double)ibuff * (double.Parse(textBox1.Text) * 0.01);
                                 break;
                             case "➖":
-                                dbuff = dbuff - double.Parse(textBox1.Text);
+                                dbuff = (double)ibuff - (double)ibuff * (double.Parse(textBox1.Text) * 0.01);
                                 break;
                             case "✖️":
-                                dbuff = dbuff * double.Parse(textBox1.Text);
+                                dbuff = (double)ibuff * (double.Parse(textBox1.Text) * 0.01);
                                 break;
                             case "➗":
-                                dbuff = dbuff / double.Parse(textBox1.Text);
-                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                dbuff = (double)ibuff / (double.Parse(textBox1.Text) * 0.01);
                                 break;
                         }
-                        textBox1.Text = dbuff.ToString();
+                        textBox1.Text = selecter(dbuff.ToString(), 12);
                     }
                     else
                     {
                         switch (textBox2.Text)
                         {
                             case "➕":
-                                ibuff = ibuff + int.Parse(textBox1.Text);
-                                textBox1.Text = ibuff.ToString();
+                                dbuff = (double)ibuff + (double)ibuff * (double.Parse(textBox1.Text)*0.01);
                                 break;
                             case "➖":
-                                ibuff = ibuff - int.Parse(textBox1.Text);
-                                textBox1.Text = ibuff.ToString();
+                                dbuff = (double)ibuff - (double)ibuff * (double.Parse(textBox1.Text) * 0.01);
                                 break;
                             case "✖️":
-                                ibuff = ibuff * int.Parse(textBox1.Text);
-                                textBox1.Text = ibuff.ToString();
+                                dbuff = (double)ibuff * (double.Parse(textBox1.Text) * 0.01);
                                 break;
                             case "➗":
-                                dbuff = (double)ibuff / double.Parse(textBox1.Text);
-                                textBox1.Text = selecter(dbuff.ToString(), 12);
+                                dbuff = (double)ibuff / (double.Parse(textBox1.Text) * 0.01);                               
                                 break;
                         }
+                        textBox1.Text = selecter(dbuff.ToString(), 12);
                     }
                 }
                 else
